@@ -1,0 +1,3 @@
+set solib-search-path ./obj/local/x86
+source G:/AndroidNdk-r10e/prebuilt/common/gdb/common.setup
+directory G:/AndroidNdk-r10e/platforms/android-9/arch-x86/usr/include jni/includes/ jni/includes/expat/ jni/includes/scew/ jni/SmartSlog/ G:/AndroidNdk-r10e/sources/cxx-stl/system

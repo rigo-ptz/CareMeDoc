@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">#00A789</color>
+    <color name="primary_dark">#008B71</color>
+    <color name="accentColor">@android:color/holo_red_light</color>
+    <color name="edgeEffect">#ff1daca4</color>
+    <color name="controlNormal">@android:color/white</color>
+    <color name="controlActivated">#0C7EA2</color>
+    <color name="controlHighlight">#cccccc</color>
+
+    <color name="primary_dark_half_opacity">#a3008b71</color>
+
+    <color name="login_til">@android:color/black</color>
+    <color name="login_til_hint">@android:color/black</color>
+</resources>

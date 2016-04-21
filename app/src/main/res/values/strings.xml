@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Doctor\'s KP</string>
+    <string name="loginActivityLabel">Login</string>
+    <string name="loginHint">Логин</string>
+    <string name="passwordHint">Пароль</string>
+    <string name="enter">Вход</string>
+    <string name="signInFail">Логин или пароль введены неверно</string>
+</resources>
