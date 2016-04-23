@@ -1,5 +1,6 @@
 package com.jollypanda.caremedoc.activities;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
@@ -51,6 +52,7 @@ public class LoginActivity extends BaseAppCompatActivity {
             switch (msg.what) {
                 case 1:
                     rlProgress.setVisibility(View.GONE);
+                    gotoMainActivity();
                     return true;
                 case 2:
                     rlProgress.setVisibility(View.GONE);
@@ -155,5 +157,10 @@ public class LoginActivity extends BaseAppCompatActivity {
             return true;
         else
             return false;
+    }
+
+    private void gotoMainActivity() {
+        Intent i = new Intent(this, MainActivity.class);
+        startActivity(i);
     }
 }

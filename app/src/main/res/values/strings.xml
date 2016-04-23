@@ -6,4 +6,17 @@
     <string name="passwordHint">Пароль</string>
     <string name="enter">Вход</string>
     <string name="signInFail">Логин или пароль введены неверно</string>
+    <string name="drawerMenuTitle1">Список пациентов</string>
+    <string name="drawerMenuTitle2">Лента событий</string>
+    <string name="drawerMenuTitle3">Тревога</string>
+    <string name="nav_header_stub">Doctor\'s status</string>
+    <string name="nav_header_email_stub">example@yandex.ru</string>
+    <string name="drawerOpen">Drawer is opened</string>
+    <string name="drawerClose">Drawer is closed</string>
+    <string name="title_feed">Лента событий</string>
+    <string name="title_alarm">Тревога</string>
+    <string name="title_patients_list">Список пациентов</string>
+    <string name="patient_profile">Профиль</string>
+    <string name="patient_ecg_list">ЭКГ</string>
+    <string name="text_stub">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex</string>
 </resources>
