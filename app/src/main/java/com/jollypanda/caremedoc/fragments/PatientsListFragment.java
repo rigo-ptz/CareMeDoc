@@ -8,11 +8,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.jollypanda.caremedoc.R;
+import com.jollypanda.caremedoc.adapters.ItemTouchHelperCallback;
 import com.jollypanda.caremedoc.adapters.PatientListAdapter;
 import com.jollypanda.caremedoc.api.model.Patient;
 import com.jollypanda.caremedoc.interfaces.OnPatientViewHolderClickListener;
@@ -34,6 +36,7 @@ public class PatientsListFragment extends Fragment implements OnPatientViewHolde
     RecyclerView rvPacients;
 
     private PatientListAdapter mAdapter;
+    private ItemTouchHelper mItemTouchHelper;
 
     private ArrayList<Patient> mPatientList;
 
@@ -73,7 +76,7 @@ public class PatientsListFragment extends Fragment implements OnPatientViewHolde
         p2.setSurname("Константинопольский");
         p3.setSurname("Никитина");
 
-        p3.setMiddleName("Анатольевич");
+        p1.setMiddleName("Анатольевич");
         p2.setMiddleName("Константинович");
         p3.setMiddleName("Николаевна");
 
@@ -91,6 +94,10 @@ public class PatientsListFragment extends Fragment implements OnPatientViewHolde
 
         mAdapter = new PatientListAdapter(getActivity(), mPatientList, this);
         rvPacients.setAdapter(mAdapter);
+
+        ItemTouchHelper.Callback callback = new ItemTouchHelperCallback(mAdapter);
+        mItemTouchHelper = new ItemTouchHelper(callback);
+        mItemTouchHelper.attachToRecyclerView(rvPacients);
     }
 
     private void setTitle() {

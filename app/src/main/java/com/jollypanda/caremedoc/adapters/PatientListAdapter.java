@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 
 import com.jollypanda.caremedoc.R;
 import com.jollypanda.caremedoc.api.model.Patient;
+import com.jollypanda.caremedoc.interfaces.OnItemTouchHelper;
 import com.jollypanda.caremedoc.interfaces.OnPatientViewHolderClickListener;
 
 import java.util.ArrayList;
@@ -18,7 +19,7 @@ import java.util.ArrayList;
  * @author Yamushev Igor
  * @since 23.04.2016
  */
-public class PatientListAdapter extends RecyclerView.Adapter<PatientListViewHolder> {
+public class PatientListAdapter extends RecyclerView.Adapter<PatientListViewHolder> implements OnItemTouchHelper {
 
     private Context mContext;
     private OnPatientViewHolderClickListener mListener;
@@ -53,5 +54,18 @@ public class PatientListAdapter extends RecyclerView.Adapter<PatientListViewHold
     @Override
     public int getItemCount() {
         return mItems == null ? 0 : mItems.size();
+    }
+
+    @Override
+    public void onItemMove(int fromPosition, int toPosition) {
+        Patient moved = mItems.remove(fromPosition);
+        mItems.add(toPosition > fromPosition ? toPosition - 1 : toPosition, moved);
+        notifyItemMoved(fromPosition, toPosition);
+    }
+
+    @Override
+    public void onItemDismiss(int position) {
+        mItems.remove(position);
+        notifyItemRemoved(position);
     }
 }
