@@ -9,5 +9,8 @@
     <dimen name="dp8">8dp</dimen>
     <dimen name="dp16">16dp</dimen>
     <dimen name="dp24">24dp</dimen>
+    <dimen name="dp60">60dp</dimen>
     <dimen name="sp24">24sp</dimen>
+    <dimen name="sp13">13sp</dimen>
+    <dimen name="dp1">1dp</dimen>
 </resources>

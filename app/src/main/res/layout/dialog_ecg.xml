@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp24"
+        android:textSize="20sp"
+        android:textColor="@android:color/black"
+        android:text="@string/ecg_records_dialog_header"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp1"
+        android:background="@color/separator"
+        android:layerType="software"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rvEcgList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/dp24"
+            android:layout_marginStart="@dimen/dp24"
+            android:layout_marginRight="@dimen/dp24"
+            android:layout_marginEnd="@dimen/dp24"
+            android:layout_above="@+id/separator"/>
+
+        <View
+            android:id="@+id/separator"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp1"
+            android:background="@color/separator"
+            android:layerType="software"
+            android:layout_above="@+id/llFooter"/>
+
+        <LinearLayout
+            android:id="@+id/llFooter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true"
+            android:gravity="end">
+            <Button
+                android:id="@+id/btnCancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dp8"
+                android:text="@string/cancel"
+                style="@style/BlueButtonBorderlessNoBold"
+                android:gravity="center"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

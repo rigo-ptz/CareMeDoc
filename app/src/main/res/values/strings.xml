@@ -21,4 +21,6 @@
     <string name="text_stub">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex</string>
     <string name="added_new_patient">Был добавлен новый пациент:</string>
     <string name="OK">OK</string>
+    <string name="ecg_records_dialog_header">Список ЭКГ</string>
+    <string name="cancel">Отменить</string>
 </resources>
