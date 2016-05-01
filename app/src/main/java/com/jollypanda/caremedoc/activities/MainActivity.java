@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 
 import com.jollypanda.caremedoc.R;
+import com.jollypanda.caremedoc.api.interaction.PatientsListApi;
 import com.jollypanda.caremedoc.fragments.AlarmFragment;
 import com.jollypanda.caremedoc.fragments.FeedFragment;
 import com.jollypanda.caremedoc.fragments.PatientsListFragment;
@@ -117,10 +118,15 @@ public class MainActivity extends BaseAppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        if (mDrawerLayout.isDrawerOpen(GravityCompat.START))
+        FragmentManager fm = getSupportFragmentManager();
+
+        if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
             mDrawerLayout.closeDrawers();
-        else
-            super.onBackPressed();
+        } else if (fm.getBackStackEntryCount() <= 1) {
+            PatientsListApi.getInstance().disconnectFromSmartSpace();
+            finish();
+        }
+//        super.onBackPressed();
     }
 
     private void initDrawer() {
