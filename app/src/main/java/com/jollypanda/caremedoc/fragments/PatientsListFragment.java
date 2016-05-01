@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import com.jollypanda.caremedoc.R;
 import com.jollypanda.caremedoc.adapters.ItemTouchHelperCallback;
 import com.jollypanda.caremedoc.adapters.PatientListAdapter;
+import com.jollypanda.caremedoc.api.interaction.PatientsListApi;
 import com.jollypanda.caremedoc.api.model.Patient;
 import com.jollypanda.caremedoc.interfaces.OnPatientViewHolderClickListener;
 
@@ -57,6 +58,9 @@ public class PatientsListFragment extends Fragment implements OnPatientViewHolde
 
         setTitle();
         setRecyclerView();
+
+        PatientsListApi api = PatientsListApi.getInstance();
+        api.getResult();
 
         return rootView;
     }

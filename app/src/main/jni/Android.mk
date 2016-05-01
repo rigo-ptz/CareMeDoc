@@ -22,8 +22,8 @@ LOCAL_C_INCLUDES +=  $(LOCAL_PATH)/includes/ \
 $(LOCAL_PATH)/SmartSlog/
 
 LOCAL_MODULE    := hello-jni
-LOCAL_SRC_FILES := hello-jni.c \
-hello.c \
+LOCAL_SRC_FILES := patients-jni.c \
+smartcare.c \
 SmartSlog/triple.c \
 SmartSlog/session.c \
 SmartSlog/subscription_changes.c \
