@@ -64,7 +64,7 @@ JNIEXPORT jint JNICALL Java_com_jollypanda_caremedoc_api_interaction_PatientsLis
     //    __android_log_print(ANDROID_LOG_ERROR, TAG_CONNECT, "Get java VM failed");
 }
 
-void Java_com_example_hellojni_HelloJni_disconnectSmartSpace(JNIEnv* env, jobject thiz ) {
+void Java_com_jollypanda_caremedoc_api_interaction_PatientsListApi_disconnectSmartSpace(JNIEnv* env, jobject thiz ) {
     __android_log_print(ANDROID_LOG_INFO, TAG_DISCONNECT,"KP leaves SS");
 
     sslog_sbcr_unsubscribe_all(NODE, true);

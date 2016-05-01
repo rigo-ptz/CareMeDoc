@@ -43,11 +43,11 @@ public class PatientListAdapter extends RecyclerView.Adapter<PatientListViewHold
         Patient patient = mItems.get(position);
 
         StringBuilder sb = new StringBuilder();
-        sb.append(patient.getSurname())
+        sb.append(patient.getSurname() != null ? patient.getSurname() : "")
                 .append(" ")
-                .append(patient.getName())
+                .append(patient.getName() != null ? patient.getName() : "")
                 .append(" ")
-                .append(patient.getMiddleName());
+                .append(patient.getMiddleName() != null ? patient.getMiddleName() : "");
         holder.tvUserNameSurname.setText(sb.toString());
     }
 

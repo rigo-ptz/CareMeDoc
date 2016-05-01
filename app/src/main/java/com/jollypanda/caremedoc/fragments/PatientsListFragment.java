@@ -1,6 +1,8 @@
 package com.jollypanda.caremedoc.fragments;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBar;
@@ -21,6 +23,8 @@ import com.jollypanda.caremedoc.api.model.Patient;
 import com.jollypanda.caremedoc.interfaces.OnPatientViewHolderClickListener;
 
 import java.util.ArrayList;
+import java.util.Observable;
+import java.util.Observer;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -31,7 +35,9 @@ import butterknife.ButterKnife;
  * @author Yamushev Igor
  * @since 23.04.2016
  */
-public class PatientsListFragment extends Fragment implements OnPatientViewHolderClickListener{
+public class PatientsListFragment extends Fragment implements
+        OnPatientViewHolderClickListener,
+        Observer {
 
     @Bind(R.id.rvPacients)
     RecyclerView rvPacients;
@@ -40,6 +46,18 @@ public class PatientsListFragment extends Fragment implements OnPatientViewHolde
     private ItemTouchHelper mItemTouchHelper;
 
     private ArrayList<Patient> mPatientList;
+
+    private Handler mHandler;
+    private Handler.Callback hc = new Handler.Callback() {
+        @Override
+        public boolean handleMessage(Message msg) {
+            if (msg.what == 1) {
+                mAdapter.notifyDataSetChanged();
+                return true;
+            }
+            return false;
+        }
+    };
 
     public PatientsListFragment() {
     }
@@ -53,16 +71,28 @@ public class PatientsListFragment extends Fragment implements OnPatientViewHolde
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_pacients_list, container, false);
         ButterKnife.bind(this, rootView);
+        mHandler = new Handler(hc);
 
         testRecycler();
 
         setTitle();
         setRecyclerView();
 
+        return rootView;
+    }
+
+    @Override
+    public void onResume() {
+        PatientsListApi.getInstance().addObserver(this);
         PatientsListApi api = PatientsListApi.getInstance();
         api.getResult();
+        super.onResume();
+    }
 
-        return rootView;
+    @Override
+    public void onPause() {
+        PatientsListApi.getInstance().deleteObserver(this);
+        super.onPause();
     }
 
     @Deprecated
@@ -126,4 +156,36 @@ public class PatientsListFragment extends Fragment implements OnPatientViewHolde
     public void onPatientEcgClick(View v, int position) {
 
     }
+
+    @Override
+    public void update(Observable observable, Object data) {
+        if (observable instanceof PatientsListApi) {
+            Patient patient = (Patient) data;
+
+            int pos = checkIfListContainsPatient(patient);
+            if (pos == -1) {
+                mPatientList.add(0, patient);
+            } else {
+                Patient p = mPatientList.get(pos);
+                mPatientList.remove(pos);
+                mPatientList.add(0, p);
+            }
+            mHandler.sendEmptyMessage(1);
+        }
+    }
+
+    private int checkIfListContainsPatient(Patient patient) {
+        int size = mPatientList.size();
+        if (size == 0)
+            return -1;
+
+        for (int i = 0; i < size; i++) {
+            Patient p = mPatientList.get(i);
+            if (p.getName().equals(patient.getName()) &&
+                    p.getSurname().equals(patient.getSurname()))
+                return i;
+        }
+        return -1;
+    }
+
 }

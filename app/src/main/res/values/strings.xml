@@ -19,4 +19,6 @@
     <string name="patient_profile">Профиль</string>
     <string name="patient_ecg_list">ЭКГ</string>
     <string name="text_stub">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex</string>
+    <string name="added_new_patient">Был добавлен новый пациент:</string>
+    <string name="OK">OK</string>
 </resources>

@@ -4,6 +4,7 @@ import com.jollypanda.caremedoc.api.model.Patient;
 import com.jollypanda.caremedoc.tools.Constants;
 
 import java.util.ArrayList;
+import java.util.Observable;
 
 /**
  * Actions with SIB for getting patient list
@@ -11,20 +12,19 @@ import java.util.ArrayList;
  * @author Yamushev Igor
  * @since 23.04.2016
  */
-public class PatientsListApi {
+public class PatientsListApi extends Observable {
 
     static {
         System.loadLibrary(Constants.JNI_LIBRARY_HELLO);
     }
-    public native int connectSmartSpace(String name, String ip, int port);
-    public native void disconnectSmartSpace();
-    public native void subscribeForPatients(long nodeDescriptor);
+    private native int connectSmartSpace(String name, String ip, int port);
+    private native void disconnectSmartSpace();
+    private native void subscribeForPatients(long nodeDescriptor);
 
     //    private static final String KP_SS_ADDRESS_LOCAL =  "78.46.130.194";
     private static final String SS_NAME =  "oss.fruct.org/smartcare";
     private static final String KP_SS_ADDRESS_LOCAL =  "192.168.56.1";
 
-    private ArrayList<Patient> mPatientArrayList;
     private int nodeDescriptor;
 
     private static PatientsListApi instance = new PatientsListApi();
@@ -36,9 +36,14 @@ public class PatientsListApi {
     private PatientsListApi() {
     }
 
-    public void getResult() {
-        mPatientArrayList = new ArrayList<>();
+    public void connectToSmartSpace() {
         nodeDescriptor = connectSmartSpace(SS_NAME, KP_SS_ADDRESS_LOCAL, 10010);
+    }
+    public void disconnectFromSmartSpace() {
+        disconnectSmartSpace();
+    }
+
+    public void getResult() {
         subscribeForPatients(nodeDescriptor);
     }
 
@@ -50,29 +55,7 @@ public class PatientsListApi {
      * @see Patient
      */
     private void handlePatientFromNative(Patient patient) {
-        // Slow, make it better
-
-        int pos = checkIfListContainsPatient(patient);
-        if (pos == -1) {
-            mPatientArrayList.add(patient);
-        } else {
-            Patient p = mPatientArrayList.get(pos);
-            mPatientArrayList.remove(pos);
-            mPatientArrayList.add(pos, p);
-        }
-    }
-
-    private int checkIfListContainsPatient(Patient patient) {
-        int size = mPatientArrayList.size();
-        if (size == 0)
-            return -1;
-
-        for (int i = 0; i < size; i++) {
-            Patient p = mPatientArrayList.get(i);
-            if (p.getName().equals(patient.getName()) &&
-                    p.getSurname().equals(patient.getSurname()))
-                return i;
-        }
-        return -1;
+        setChanged();
+        notifyObservers(patient);
     }
 }
