@@ -1,5 +1,6 @@
 package com.jollypanda.caremedoc.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -16,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.jollypanda.caremedoc.R;
+import com.jollypanda.caremedoc.activities.ProfileActivity;
 import com.jollypanda.caremedoc.adapters.ItemTouchHelperCallback;
 import com.jollypanda.caremedoc.adapters.PatientListAdapter;
 import com.jollypanda.caremedoc.api.interaction.PatientsListApi;
@@ -76,7 +78,7 @@ public class PatientsListFragment extends Fragment implements
 
         testRecycler();
 
-        setTitle();
+        setToolbar();
         setRecyclerView();
 
         return rootView;
@@ -141,7 +143,7 @@ public class PatientsListFragment extends Fragment implements
         mItemTouchHelper.attachToRecyclerView(rvPacients);
     }
 
-    private void setTitle() {
+    private void setToolbar() {
         ActionBar actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
         if (actionBar != null) {
             actionBar.setTitle(getString(R.string.title_patients_list));
@@ -150,7 +152,8 @@ public class PatientsListFragment extends Fragment implements
 
     @Override
     public void onPatientProfileClick(View v, int position) {
-
+        Intent intent = new Intent(getActivity(), ProfileActivity.class);
+        startActivity(intent);
     }
 
     @Override

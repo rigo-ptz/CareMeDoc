@@ -28,4 +28,5 @@
     <string name="ecg_analysis_header">Анализ:</string>
     <string name="ecg_analysis_stub">Желудочковый ритм(удар/мин): хх \n Интервал PR(мс): хх \n Интервал P/QRS/T(мс): хх \n Интервал QT/QTC(мс): хх \n Ось P/QRS/T(град): хх \n Амплитуда RV5/SV1(мВ): хх \n</string>
     <string name="ecg_activity_title">Просмотр ЭКГ записи</string>
+    <string name="profile_title">Профиль пациента</string>
 </resources>
