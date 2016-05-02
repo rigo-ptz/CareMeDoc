@@ -44,7 +44,8 @@ public class PatientsListApi extends Observable {
     }
 
     public void getResult() {
-        subscribeForPatients(nodeDescriptor);
+        if (nodeDescriptor != -1)
+            subscribeForPatients(nodeDescriptor);
     }
 
     /**

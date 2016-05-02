@@ -30,7 +30,7 @@
             android:name=".activities.MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="landscape"
-            android:parentActivityName=".activities.LoginActivity"> <!--android:theme="@style/AppTheme.MainActivity"-->
+            android:parentActivityName=".activities.LoginActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.LoginActivity" />
@@ -40,7 +40,17 @@
             android:name=".activities.ECGActivity"
             android:label="@string/app_name"
             android:screenOrientation="landscape"
-            android:parentActivityName=".activities.MainActivity"> <!--android:theme="@style/AppTheme.MainActivity"-->
+            android:parentActivityName=".activities.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.MainActivity" />
+        </activity>
+
+        <activity
+            android:name=".activities.ProfileActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="landscape"
+            android:parentActivityName=".activities.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.MainActivity" />
