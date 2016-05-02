@@ -21,4 +21,11 @@
     <string name="text_stub">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex</string>
     <string name="added_new_patient">Был добавлен новый пациент:</string>
     <string name="OK">OK</string>
+    <string name="ecg_records_dialog_header">Список ЭКГ</string>
+    <string name="cancel">Отменить</string>
+    <string name="patient_ecg_info">Информация:</string>
+    <string name="stub_ecg_info">На учёте не состоит</string>
+    <string name="ecg_analysis_header">Анализ:</string>
+    <string name="ecg_analysis_stub">Желудочковый ритм(удар/мин): хх \n Интервал PR(мс): хх \n Интервал P/QRS/T(мс): хх \n Интервал QT/QTC(мс): хх \n Ось P/QRS/T(град): хх \n Амплитуда RV5/SV1(мВ): хх \n</string>
+    <string name="ecg_activity_title">Просмотр ЭКГ записи</string>
 </resources>

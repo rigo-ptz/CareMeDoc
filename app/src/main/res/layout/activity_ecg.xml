@@ -1,0 +1,108 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/containerECG"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/llToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical"
+        android:descendantFocusability="blocksDescendants">
+
+        <include
+            layout="@layout/toolbar"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llExtraInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/llToolbar"
+        android:paddingBottom="@dimen/dp8"
+        android:orientation="horizontal"
+        android:background="@color/primary">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp16"
+                android:layout_marginLeft="@dimen/dp16"
+                android:layout_marginStart="@dimen/dp16"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/sp20"
+                android:text="@string/patient_ecg_info"/>
+
+            <ScrollView
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="@dimen/dp16"
+                android:background="@android:color/white"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/tvUserInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="vertical"
+                    android:background="#ffffffff"
+                    android:text="@string/stub_ecg_info"/>
+            </ScrollView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp16"
+                android:layout_marginLeft="@dimen/dp16"
+                android:layout_marginStart="@dimen/dp16"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/sp20"
+                android:text="@string/ecg_analysis_header"/>
+
+            <ScrollView
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="@dimen/dp16"
+                android:layout_marginRight="@dimen/dp8"
+                android:layout_marginEnd="@dimen/dp8"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/tvWaveAnalysis"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="vertical"
+                    android:background="#ffffffff"
+                    android:text="@string/ecg_analysis_stub"/>
+            </ScrollView>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/rvEcgViewContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/llExtraInfo"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+</RelativeLayout>

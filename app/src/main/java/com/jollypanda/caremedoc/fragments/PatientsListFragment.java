@@ -20,6 +20,7 @@ import com.jollypanda.caremedoc.adapters.ItemTouchHelperCallback;
 import com.jollypanda.caremedoc.adapters.PatientListAdapter;
 import com.jollypanda.caremedoc.api.interaction.PatientsListApi;
 import com.jollypanda.caremedoc.api.model.Patient;
+import com.jollypanda.caremedoc.dialogs.EcgListDialog;
 import com.jollypanda.caremedoc.interfaces.OnPatientViewHolderClickListener;
 
 import java.util.ArrayList;
@@ -95,6 +96,12 @@ public class PatientsListFragment extends Fragment implements
         super.onPause();
     }
 
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        ButterKnife.unbind(this);
+    }
+
     @Deprecated
     private void testRecycler() {
         mPatientList = new ArrayList<>();
@@ -142,19 +149,14 @@ public class PatientsListFragment extends Fragment implements
     }
 
     @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        ButterKnife.unbind(this);
-    }
-
-    @Override
     public void onPatientProfileClick(View v, int position) {
 
     }
 
     @Override
     public void onPatientEcgClick(View v, int position) {
-
+        EcgListDialog dialog = new EcgListDialog(getActivity());
+        dialog.show();
     }
 
     @Override
