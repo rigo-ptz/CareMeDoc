@@ -1,6 +1,7 @@
 package com.jollypanda.caremedoc.dialogs;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -11,6 +12,7 @@ import android.view.Window;
 import android.widget.Button;
 
 import com.jollypanda.caremedoc.R;
+import com.jollypanda.caremedoc.activities.ECGActivity;
 import com.jollypanda.caremedoc.adapters.EcgListAdapter;
 import com.jollypanda.caremedoc.api.model.EcgItem;
 import com.jollypanda.caremedoc.interfaces.OnEcgViewHolderClickListener;
@@ -111,6 +113,7 @@ public class EcgListDialog extends AlertDialog implements OnEcgViewHolderClickLi
 
     @Override
     public void onClick(View v, int position) {
-
+        Intent intent = new Intent(mContext, ECGActivity.class);
+        mContext.startActivity(intent);
     }
 }

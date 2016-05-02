@@ -36,6 +36,16 @@
                 android:value=".activities.LoginActivity" />
         </activity>
 
+        <activity
+            android:name=".activities.ECGActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="landscape"
+            android:parentActivityName=".activities.MainActivity"> <!--android:theme="@style/AppTheme.MainActivity"-->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.MainActivity" />
+        </activity>
+
         <activity android:name="com.jollypanda.caremedoc.HelloJni"
                   android:label="@string/app_name">
         </activity>
