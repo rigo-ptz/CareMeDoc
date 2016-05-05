@@ -2,8 +2,8 @@
 Android application for doctors. It presents mobile office for cardiologists.
 
 App provides such functions as:
-* Viewing list of pacients
-* Viewing pacient info
+* Viewing list of patients
+* Viewing patient info
   * medical card
   * ECG
 
